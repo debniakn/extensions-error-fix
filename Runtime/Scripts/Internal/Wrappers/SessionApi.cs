@@ -242,8 +242,7 @@ namespace Google.XR.ARCoreExtensions.Internal
             PoseApi.Destroy(poseHandle);
             if (status != ApiArStatus.Success)
             {
-                Debug.LogErrorFormat("Failed to estimate feature map quality with status '{0}'.",
-                    status);
+                //   Debug.LogErrorFormat("Failed to estimate feature map quality with status '{0}'.", status);
             }
 #endif
             return (FeatureMapQuality)featureMapQuality;
