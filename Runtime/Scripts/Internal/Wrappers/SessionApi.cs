@@ -236,16 +236,13 @@ namespace Google.XR.ARCoreExtensions.Internal
             
             
             int featureMapQuality = (int)FeatureMapQuality.Insufficient;
-// #if !UNITY_IOS || CLOUDANCHOR_IOS_SUPPORT
-//             IntPtr poseHandle = PoseApi.Create(sessionHandle, pose);
-//             var status = ExternApi.ArSession_estimateFeatureMapQualityForHosting(
-//                 sessionHandle, poseHandle, ref featureMapQuality);
-//             PoseApi.Destroy(poseHandle);
-//             if (status != ApiArStatus.Success)
-//             {
-//                 //   Debug.LogErrorFormat("Failed to estimate feature map quality with status '{0}'.", status);
-//             }
-// #endif
+#if !UNITY_IOS || CLOUDANCHOR_IOS_SUPPORT
+            IntPtr poseHandle = PoseApi.Create(sessionHandle, pose);
+            var status = ExternApi.ArSession_estimateFeatureMapQualityForHosting(
+                sessionHandle, poseHandle, ref featureMapQuality);
+            PoseApi.Destroy(poseHandle);
+            
+#endif
             return (FeatureMapQuality)featureMapQuality;
         }
 
