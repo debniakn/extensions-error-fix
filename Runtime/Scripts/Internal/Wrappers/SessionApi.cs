@@ -228,11 +228,11 @@ namespace Google.XR.ARCoreExtensions.Internal
         public static FeatureMapQuality EstimateFeatureMapQualityForHosting(
             IntPtr sessionHandle, Pose pose)
         {
-            #if UNITY_EDITOR
-            if (Application.isEditor) {
-                return ARCoreCloudAnchorsEditorDelegate.Instance.EstimateFeatureMapQualityForHosting(sessionHandle, pose);
-            }
-            #endif
+            // #if UNITY_EDITOR
+            // if (Application.isEditor) {
+            //     return ARCoreCloudAnchorsEditorDelegate.Instance.EstimateFeatureMapQualityForHosting(sessionHandle, pose);
+            // }
+            // #endif
             
             int featureMapQuality = (int)FeatureMapQuality.Insufficient;
 #if !UNITY_IOS || CLOUDANCHOR_IOS_SUPPORT
